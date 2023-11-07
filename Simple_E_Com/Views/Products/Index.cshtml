@@ -1,0 +1,256 @@
+﻿@model IEnumerable<Simple_E_Com.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+
+
+    <div>
+        <a asp-action="Create">Create New</a>
+ </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>@Html.DisplayNameFor(model=>model.Image)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem =>item.Image)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @* @foreach (var item in Model)
+    {
+        
+       <div class="card mb-2">
+           <div class="card-header d-flex justify-content-between">
+               <div>
+                   <img class="rounded-circle" src="@item.Image">
+                   <label>
+                       <b>Name: </b>
+                       @Html.DisplayFor(x=>item.Name)
+                   </label>
+               </div>
+            <div>
+                <a asp-action="Edit" asp-controller="Products" asp-route-id="@item.Id" class="btn btn-outline-success btn-sm"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+                <a asp-action="Delete" asp-controller="Candidates" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+            </div>
+           </div>
+           <div class="card-body">
+            <table class="table table-bordered table-striped table-responsive-sm">
+                <thead class="table-primary fw-bold">
+                    <tr>
+                        <th>@Html.DisplayNameFor(x=>x.Name)</th>
+                        <th>@Html.DisplayNameFor(x=>x.Unit)</th>
+                        <th>@Html.DisplayNameFor(x=>x.Price)</th>
+                        <th>@Html.DisplayNameFor(x=>x.Quantity)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(x=>i.Name)</td>
+                            <td>@Html.DisplayFor(x=>i.Unit)</td>
+                            <td>@Html.DisplayFor(x=>i.Price)</td>
+                            <td>@Html.DisplayFor(x=>i.Quantity)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+           </div>
+
+       </div>
+
+
+
+    }
+ *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@

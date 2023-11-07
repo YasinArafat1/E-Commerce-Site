@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Simple_E_Com.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+}
+@using Simple_E_Com.Models;
+@using Microsoft.AspNetCore.Http;
+@using Simple_E_Com
+@inject IHttpContextAccessor _httpContextAccessor;
+@{
+    List<Product> productList = _httpContextAccessor.HttpContext.Session.GetObject<List<Product>>("cart");
+    double count = 0;
+    if (productList!=null)
+    {
+        foreach (var item in productList)
+        {
+            count += item.Quantity;
+        }
+    }
+    else
+    {
+        productList = new List<Product>();
+    }
+
+}
+
+<div class="row mb-2">
+    <div class="col-10">
+        @if (TempData["msg"] != null)
+        {
+            <h4 class="alert alert-primary">@TempData["msg"]</h4>
+        }
+        
+    </div>
+    <div class="col-2 mt-2">
+        <a asp-action="ShowCart" asp-controller="Shopping" style="text-decoration:none;">
+            
+            <img src="~/images/CartIcon.jpg" width="150" height="100" /> <span class="badge text-bg-warning">@count</span>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img src="@item.Image" class="card-img-top" alt="..." width="120" height="200">
+                <div class="card-body">
+                    <p class="card-title"><b>Name:</b>@Html.DisplayFor(x => item.Name)</p>
+                    <p class="card-text"><b>Unit :</b>@Html.DisplayFor(x => item.Unit) Pcs</p>
+                    <p class="card-text"><b>Price :</b>@Html.DisplayFor(x => item.Price) ৳</p>
+                </div>
+                <div class="card-body">
+                    <form asp-action="AddToCart" asp-controller="Shopping" method="post">
+                        <input type="hidden" name="pid" value="@item.Id">
+                        <input type="number" name="qty" min="1" max="500" value="1" class="me-2" style="border-radius:7px;">
+                        <button type="submit" class="btn btn-outline-warning"><i class="fa fa-shopping-cart"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
